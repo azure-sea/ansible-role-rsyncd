@@ -1,0 +1,5 @@
+---
+# defaults file for rsync
+rsync_port: 873
+rsync_client_user: rsync
+rsync_client_passwd: 123456
