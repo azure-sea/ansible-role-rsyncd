@@ -67,5 +67,7 @@ BSD
 
 Author Information
 ------------------
+Author: Azure-sea \
+QQ: 2053921233 \
+email: 2053921233@qq.com
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
