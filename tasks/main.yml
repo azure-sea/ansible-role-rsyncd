@@ -1,0 +1,37 @@
+---
+# tasks file for rsync
+- name: Include variables
+  include_vars: main.yml
+    
+- name: Create Run Rsync user
+  user: 
+    name: "{{ rsync_name }}"
+    create_home: "{{ rsync_home }}"
+    shell: "{{ rsync_shell }}"
+    state: present
+  when: rsync_name != "nobody"
+
+- name: Create Directory
+  file: 
+    path: "{{ rsync_dir }}"
+    owner: "{{ rsync_name }}" 
+    group: "{{ rsync_name }}" 
+    state: directory 
+    mode: 0755
+
+- name: Install Rsync Server
+  yum: name=rsync state=present
+  register: rsyncd_install_status
+
+- name: Copy Rsync configure
+  template: 
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}" 
+    mode: "{{ item.mode }}"
+  with_items:
+    - { src: "{{ rsync_src_conf }}" ,dest: "{{ rsync_dest_conf }}", mode: '0644' }
+    - { src: "{{ rsync_src_passwd }}" ,dest: "{{ rsync_dest_passwd }}", mode: '0600' }
+  notify: Restart Rsync Srever
+
+- name: Start Rsync Server And Add PowerBoot
+  systemd: name=rsyncd state=started enabled=yes
