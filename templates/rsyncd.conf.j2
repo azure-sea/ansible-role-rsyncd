@@ -1,0 +1,15 @@
+# /etc/rsyncd: configuration file for rsync daemon mode
+
+uid= {{ rsync_name }}
+gid= {{ rsync_name }}
+use chroot = yes
+address = {{ ansible_default_ipv4.address }}
+port {{ rsync_port }}
+log file = /var/log/rsyncd.log        
+pid file = /var/run/rsyncd.pid
+[wwwroot]
+    path = {{ rsync_dir }}
+    read only = no
+    dont compress   = *.gz *.tgz *.zip *.z *.Z *.rpm *.deb *.bz2
+    auth user = {{ rsync_client_user }}
+    secrets file = {{ rsync_dest_passwd }}
