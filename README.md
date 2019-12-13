@@ -57,7 +57,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: rsync, : rsync_name }
+         - { role: rsync, rsync_name: nobody }
 
 
 License
