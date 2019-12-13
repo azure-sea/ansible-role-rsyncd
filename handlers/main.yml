@@ -1,0 +1,6 @@
+---
+# handlers file for rsync
+- name: Restart Rsync Srever
+  systemd: name=rsyncd state=restarted
+  when: not rsyncd_install_status.changed
+
