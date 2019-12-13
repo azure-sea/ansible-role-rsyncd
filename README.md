@@ -28,9 +28,9 @@ If you want to customize the running user, please set the following variables in
 
 2. Rsync 工作目录 \
   Rsync work directory
-
+```
     rsync_dir: /data
-
+```
 3. 设置端口 \
    set Port
 
