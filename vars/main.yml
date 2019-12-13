@@ -1,0 +1,10 @@
+---
+# vars file for rsync
+rsync_name: nobody
+rsync_home: no
+rsync_shell: /sbin/nologin
+rsync_dir: /data
+rsync_src_conf: rsyncd.conf.j2
+rsync_dest_conf: /etc/rsyncd.conf
+rsync_src_passwd: rsync.passwd.j2
+rsync_dest_passwd: /etc/rsync.passwd
