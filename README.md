@@ -26,8 +26,8 @@ If you want to customize the running user, please set the following variables in
 
     rsync_name: nobody
 
-2. Rsync 工作目录 \ 
-   Rsync work directory
+2. Rsync 工作目录 \
+  Rsync work directory
 
     rsync_dir: /data
 
